@@ -13,6 +13,7 @@
     padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     color: black;
     font-family: "open sans";
     height: 100vh;
@@ -119,6 +120,7 @@
     max-height: 180px;
     min-height: 180px;
     transition: all 250ms ease-out;
+    border-radius: 10px;
   }
   
   .box:hover{
