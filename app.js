@@ -27,6 +27,7 @@ app.use(express.json())
 
 
 app.use(require('./routes/index.js'))
+app.use(require('./routes/draw.js'))
 
 
 //-------------------------------------------------------------------------------------
