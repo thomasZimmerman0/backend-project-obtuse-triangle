@@ -12,7 +12,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       userID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model: 'users',
+          key: 'id'
+        }
       },
       is_published: {
         type: Sequelize.BOOLEAN
