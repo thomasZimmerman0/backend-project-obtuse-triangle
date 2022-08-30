@@ -1,9 +1,0 @@
-{
-  "development": {
-    "username": "uuvswsvf",
-    "password": "D4QfyFg883t4ubBDbWtV37wddOQCks2z",
-    "database": "uuvswsvf",
-    "host": "jelani.db.elephantsql.com",
-    "dialect": "postgres"
-  }
-}
