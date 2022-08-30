@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+body{
+	background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: Pacifico;
+}
+
+header{
+    display:flex;
+    justify-content: space-between;
+    color: white;
+    background: rgba(0,0,0,0.2)
+  }
+  
+  header div{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Pacifico;
+    margin: 0 2rem;
+  }
+  
+  header div i{
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  
+  
+  header nav{
+    padding: 1rem 2rem;
+  }
+  
+  nav ul li{
+    list-style: none;
+    display: inline;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+  
+  nav li a{
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: all 250ms ease-in;
+  }
+  
+  nav li a:hover{
+    background: rgba(255,255,255,.3);
+    color: black;
+  }
+  
+.text-center{
+	color:black;	
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background: rgba(255,255,255,.5);
+	border-radius:3px;
+	padding:70px 100px;
+    border-radius: 10px;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+    border-radius: 10px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:black;	
+    pointer-event:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:black;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid black;	
+}
+.btn{
+	color:#fff;
+	background-color:black;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+}
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}

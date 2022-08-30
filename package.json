@@ -1,11 +1,14 @@
 {
+
   "name": "back-end-project-2022",
+
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clintwestwords/back-end-project-2022.git"
@@ -23,6 +26,7 @@
     "express": "^4.18.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.4"
