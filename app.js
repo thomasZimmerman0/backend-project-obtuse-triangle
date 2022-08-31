@@ -27,9 +27,11 @@ app.use(express.json())
 
 
 app.use(require('./routes/index.js'))
+app.use(require('./routes/draw.js'))
 app.use(require('./routes/logIn.js'))
 app.use(require('./routes/registration.js'))
 app.use(require('./routes/contact.js'))
+
 
 
 //-------------------------------------------------------------------------------------
