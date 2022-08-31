@@ -2,22 +2,16 @@ const express = require('express');
 const app = express();
 
 const port = 3000;
-app.listen(port);
 const cookieSession = require('cookie-session');
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
-app.use(require('./routes/index.js'))
-app.use(require('./routes/login.js'))
-app.use(require('./routes/registration.js'))
-
 const passport = require('passport');
 require('./auth/passport-config')(passport)
-app.use( passport.initialize() );
-app.use( passport.session() );
 
 app.use(cookieSession({
     name: 'session', 
@@ -25,7 +19,8 @@ app.use(cookieSession({
     maxAge: 14 * 24 * 60 * 60 * 1000
 }))
 
-
+app.use( passport.initialize() );
+app.use( passport.session() );
 //-------------------------------------------------------------------------------------
 
 
@@ -36,3 +31,4 @@ app.use(require('./routes/contact.js'))
 
 
 //-------------------------------------------------------------------------------------
+app.listen(port);

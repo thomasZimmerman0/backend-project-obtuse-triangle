@@ -8,7 +8,7 @@ const init = (passport) => {
 
     //req => passport => sessionid req.isAuthenticated() => respspose
     //done = next
-    passport.use(new LocalStrategy({usernameField: 'email'}, async  (email, password, done)=>{
+    passport.use(new LocalStrategy({usernameField: 'email'}, async (email, password, done)=>{
 
         //scrape ifno from header 
         // check if user is in db
