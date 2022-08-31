@@ -1,0 +1,190 @@
+
+    body{
+        background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
+        background-size:cover;
+        background-attachment: fixed;
+        height:98.5vh;
+        width: 98vw;
+        
+        
+    }
+    .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .right{
+        float: right;
+        
+      }
+
+    .front{
+    background: rgba(0,0,0,0.5);
+      background-size: cover;
+      border-radius: 10px;
+      font-style: italic;
+      text-decoration:  underline white 3px;
+    }
+
+    .back{
+    background: rgba(255,255,255,.3);
+      background-size: cover;
+      border-radius: 10px;
+    }
+
+    .cardleft{
+      float: left;
+      width: 100px;
+      height: 350px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 10px;
+    }
+
+    .flip-container {
+      perspective: 1000px;
+      display:flexbox;
+      /* padding-bottom: 100px; */
+      padding-bottom: 10px;
+    }
+
+    .flip-container:hover .flipper, .flip-container.hover .flipper {
+      transform: rotateY(180deg);
+      cursor: pointer;
+    }
+
+    .flip-container, .front, .back {
+      height: 350px;
+      width: 600px;
+      
+
+    }
+
+    .flipper {
+      transition: 0.5s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .front, .back {
+      backface-visibility: hidden;
+      position: absolute;
+      
+    }
+
+    .front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .front p{
+      font-family: Pacifico;
+      margin-top: 25%;
+      font-size: 42px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    /* .back {
+      background-color: #FFFFFF;
+    } */
+
+    .back h1{
+      margin-left: 22%;
+      font-family: Pacifico;
+      color: #000;
+      line-height: 1em;
+    }
+
+    .back p{
+      line-height: 0.3em;
+      margin-left: 22%;
+      font-size: 32px;
+      font-family: Pacifico;
+      color: #000000;
+    }
+
+    .back a{
+      line-height: 4em;
+      margin-left: 4%;
+      color: #000;
+      align-self: center;
+      text-decoration: none;
+      letter-spacing: 12px;
+    }
+    .back a:hover{
+      -webkit-transform: scale(1.3, 1.3);
+      transform: scale(1.3, 1.3);
+      text-decoration: none;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .vertical.flip-container {
+      position: relative;
+    }
+
+    .vertical .back {
+      transform: rotateX(180deg);
+    }
+
+    .vertical.flip-container .flipper {
+      transform-origin: 100% 400x;
+    }
+
+    .vertical.flip-container:hover .flipper {
+      transform: rotateX(-180deg);
+    }
+    .fa{
+      border-radius: 50%;
+      background-position: #FF00FF;
+    }
+    header{
+        display:flex;
+        justify-content: space-between;
+        color: white;
+        background: rgba(0,0,0,0.2)
+      }
+      
+      header div{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Pacifico;
+        margin: 0 2rem;
+      }
+      
+      header div i{
+        font-size: 2rem;
+        margin: 1rem;
+      }
+      
+      
+      header nav{
+        padding: 1rem 2rem;
+      }
+      
+      nav ul li{
+        list-style: none;
+        display: inline;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 5px;
+      }
+      
+      nav li a{
+        padding: 1rem;
+        margin: 1rem;
+        text-decoration: none;
+        color: white;
+        transition: all 250ms ease-in;
+      }
+      
+      nav li a:hover{
+        background: rgba(255,255,255,.3);
+        color: black;
+      }
+      
+
