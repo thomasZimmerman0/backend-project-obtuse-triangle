@@ -65,18 +65,21 @@ body.addEventListener('mousemove', (e) => {
 
 
 function save() {
-  canvas.toBlob((blob)=>{
-    const newImg = document.createElement('img');
-    const url = URL.createObjectURL(blob);
-    console.log(blob)
-   console.log(url)
 
-    // newImg.onload = () => {
+  const canvas = document.createElement('canvas')
+  const dataURL = canvas.toDataURL();
+  console.log(dataURL)
+  // canvas.toBlob((blob)=>{
+  //   const newImg = document.createElement('img');
+  //   const url = URL.createObjectURL(blob);
+  //   console.log(blob)
+  //  console.log(url)
 
-    //   URL.revokeObjectURL(url);
-    // };
+  //   // newImg.onload = () => {
+
+  //   //   URL.revokeObjectURL(url);
+  //   // };
   
-    newImg.src = url;
-    document.body.appendChild(newImg);
-  })
-}
+  //   newImg.src = url;
+  //   document.body.appendChild(newImg);
+       }     // })
