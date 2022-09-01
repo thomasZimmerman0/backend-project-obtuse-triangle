@@ -33,6 +33,8 @@ app.use(require('./routes/registration.js'))
 app.use(require('./routes/contact.js'))
 app.use(require('./routes/profile.js'))
 app.use(require('./routes/draw2.js'))
+app.use(require('./routes/test.js'))
+
 
 
 //-------------------------------------------------------------------------------------
