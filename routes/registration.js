@@ -20,6 +20,9 @@ router.post('/registration', async (req, res) =>{
             userName: username, 
             email: email,
             password: password,
+            followers: '',
+            drawings: '',
+            profilePic: '',
             roleID: 1
         })
 

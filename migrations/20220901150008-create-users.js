@@ -17,6 +17,15 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      followers: {
+        type: Sequelize.STRING
+      },
+      following: {
+        type: Sequelize.STRING
+      },
+      profilePic: {
+        type: Sequelize.STRING
+      },
       roleID: {
         type: Sequelize.INTEGER,
         references: {
