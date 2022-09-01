@@ -311,12 +311,12 @@ canvas.addEventListener('click',(e)=>{
 canvas.addEventListener('mousemove', (e) => {
     // console.log(widthOffset)
   
-  canvas.addEventListener('mousedown', () => {
+  canvas.addEventListener('mousedown', (e2) => {
       bounding = canvas.getBoundingClientRect();
       running = true
 
   })
-  body.addEventListener('mouseup', () => {
+  body.addEventListener('mouseup', (e2) => {
       running = false
   })
   if (running) {
