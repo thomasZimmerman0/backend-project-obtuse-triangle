@@ -2,17 +2,111 @@ let canvas = document.querySelector('#myCanvas');
 let ctx = canvas.getContext('2d');
 let body = document.querySelector('#body');
 let menuButtons = document.querySelector('#menuButtons')
+let stroke = document.querySelector("#stroke")
 
 
-let raf;
 let running = false;
+
+function strokeSize(){
+  if(stroke.value){
+    console.log(stroke.value)
+    return stroke.value
+  }
+  else{
+    console.log('10')
+    return 10
+  }
+}
+
+
+
+//--------------------------------------------------------------------COLOR SELECT--------------------------------------------------------------------------
+
+
+
+var hue = 0;
+var saturation = 0;
+var lightness = 0;
+var color;
+
+//Get hue canvas
+var hueCanvas = document.getElementById('hue-picker')
+var ctxHue = hueCanvas.getContext('2d');
+hueCanvas.width = 360;
+hueCanvas.height = 20;
+
+//Get hue canvas
+var colorCanvas = document.getElementById('color-picker')
+var ctxColor = colorCanvas.getContext('2d');
+colorCanvas.width = 100;
+colorCanvas.height = 100;
+
+drawHue(ctxHue);
+drawColor(ctxColor, hue);
+
+function drawHue(ctx) {
+  for(let hueCounter = 0; hueCounter <= 360; hueCounter++) {
+    ctx.beginPath();
+    ctx.rect(hueCounter, 0, 1, 20);
+    ctx.fillStyle = 'hsl(' + hueCounter + ',100%,50%)';
+    ctx.fill();
+  }
+}
+
+function drawColor(ctx, hue) {
+  for(let saturationCounter = 0; saturationCounter <= 100; saturationCounter++) {
+    for(let lightnessCounter = 0; lightnessCounter <= 100; lightnessCounter++) {
+      ctx.beginPath();
+      ctx.rect(saturationCounter, lightnessCounter, 1, 1);
+      let lightnessVal = Math.abs(lightnessCounter - 100);
+      ctx.fillStyle = 'hsl(' + hue + ',' + saturationCounter + '%,' + lightnessVal + '%)';
+      ctx.fill();
+    }
+  }
+}
+
+hueCanvas.addEventListener('click', (e) => {
+  let hueCanvasPos = hueCanvas.getBoundingClientRect().x;
+  let hueCanvasDocWidth = hueCanvas.getBoundingClientRect().width;
+  let hueCanvasWidth = hueCanvas.width;
+  let hueCanvasRatio = hueCanvasWidth / hueCanvasDocWidth;
+  hue = ((e.x) - hueCanvasPos) * hueCanvasRatio;
+  hue = Math.round(hue);
+  drawColor(ctxColor, hue);
+});
+
+colorCanvas.addEventListener('click', (e) => {
+  let colorCanvasPosX = colorCanvas.getBoundingClientRect().x;
+  let colorCanvasPosY = colorCanvas.getBoundingClientRect().y;
+  let colorCanvasDocWidth = colorCanvas.getBoundingClientRect().width;
+  let colorCanvasWidth = colorCanvas.width;
+  let colorCanvasRatio = colorCanvasWidth / colorCanvasDocWidth;
+  saturation = ((e.x) - colorCanvasPosX) * colorCanvasRatio;
+  lightness = ((e.y) - colorCanvasPosY) * colorCanvasRatio;
+  saturation = Math.round(saturation);
+  lightness = Math.round(lightness);
+  lightness = Math.abs(lightness - 100);
+  color = 'hsl(' + hue + ',' + saturation + '%,' + lightness + '%)';
+  console.log(color);
+  setColor();
+})
+
+function setColor() {
+  ctx.strokeStyle = color
+}
+
+
+
+//-------------------------------------------------------------MENU BAR BOTTOM-----------------------------------------------------------------------------------
+
+
 
 const ball = {
   x: 0,
   y: 0,
   vx: 5,
   vy: 1,
-  radius: 25,
+  radius: 10,
   color: 'black',
   draw() {
     ctx.beginPath();
@@ -22,19 +116,14 @@ const ball = {
     ctx.fillStyle = this.color;
     ctx.fill();
   }
-};
-
-function clear() {
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
 }
-
 
 let bounding = canvas.getBoundingClientRect();
 let penButton = true;
 let lineButton = false;
 let squareButton = false;
 let circleButton = false;
+let eraserButton = false;
 let eyeButton = false;
 let count = 0
 let pointOne = []
@@ -59,6 +148,7 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = false
     squareButton = false
     circleButton = false
+    eraserButton = false
     eyeButton = false
 
   }
@@ -67,6 +157,7 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = true
     squareButton = false
     circleButton = false
+    eraserButton = false
     eyeButton = false
 
   }
@@ -75,6 +166,7 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = false
     squareButton = true
     circleButton = false
+    eraserButton = false
     eyeButton = false
 
   }
@@ -83,15 +175,16 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = false
     squareButton = false
     circleButton = true
+    eraserButton = false
     eyeButton = false
 
   }
   if(e.target.id == "eraserButton" || e.target.parentElement.id == "eraserButton"){
-    ball.color = 'white';
     penButton = true
     lineButton = false
     squareButton = false
     circleButton = false
+    eraserButton = true
     eyeButton = false
 
   }
@@ -101,6 +194,7 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = false
     squareButton = false
     circleButton = false
+    eraserButton = false
     eyeButton = false
 
   }
@@ -109,6 +203,7 @@ menuButtons.addEventListener('click',(e)=>{
     lineButton = false
     squareButton = false
     circleButton = false
+    eraserButton = false
     eyeButton = true
 
   }
@@ -138,6 +233,7 @@ canvas.addEventListener('click',(e)=>{
       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
     }
     else if (count == 1){
+      ctx.lineWidth = strokeSize()
       ctx.beginPath();
       ctx.moveTo(pointOne[0], pointOne[1]);
       ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
@@ -155,6 +251,7 @@ canvas.addEventListener('click',(e)=>{
     }
     else if (count == 1){
       console.log('square')
+      ctx.lineWidth = strokeSize()
       ctx.beginPath();
       ctx.moveTo(pointOne[0], pointOne[1]);
       ctx.lineTo(pointOne[0], e.clientY - bounding.top)
@@ -174,6 +271,7 @@ canvas.addEventListener('click',(e)=>{
       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
     }
     else if (count == 1){
+      ctx.lineWidth = strokeSize()
       let xMid = ((Math.abs(pointOne[0]-(e.clientX - bounding.left)))/2)
       let yMid = ((Math.abs(pointOne[1]-(e.clientY - bounding.top)))/2)
       if(pointOne[0]<(e.clientX - bounding.left)){
@@ -223,8 +321,15 @@ canvas.addEventListener('mousemove', (e) => {
   })
   if (running) {
     if(penButton){
+      if(eraserButton){
+        ball.color = 'white';
+      }
+      else{
+        ball.color = color
+      }
       ball.x = e.clientX - bounding.left;
       ball.y = e.clientY - bounding.top;
+      ball.radius = strokeSize()
       ball.draw();
     }
   
@@ -242,3 +347,6 @@ function save() {
     document.body.appendChild(newImg);
   // })
 }
+
+
+

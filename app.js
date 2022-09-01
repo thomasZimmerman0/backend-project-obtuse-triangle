@@ -32,12 +32,9 @@ app.use(require('./routes/logIn.js'))
 app.use(require('./routes/registration.js'))
 app.use(require('./routes/contact.js'))
 app.use(require('./routes/profile.js'))
-<<<<<<< HEAD
 app.use(require('./routes/draw2.js'))
-=======
 app.use(require('./routes/test.js'))
 
->>>>>>> e432a63 (all draw buttons work except circle is scuff no paint and zoom)
 
 
 //-------------------------------------------------------------------------------------

@@ -22,6 +22,18 @@
     <canvas id="myCanvas" width="1000px" height="1000px" style="border:2px solid #000000; background-color: white;">
         Your browser does not support Drawing
     </canvas> 
+    <div class="container">
+      <div class="color-selector-wrapper">
+        <canvas id="hue-picker"></canvas>
+        <canvas id="color-picker"></canvas>
+      </div>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="stroke" class="sr-only">Strock Size</label>
+        <input type="number" name="stroke" id="stroke" class="form-control" placeholder="10px" >
+      </div>
+    </form>
     <button onclick="save()">save</button>
     <div> <!--menu=-->
       <menu id="menuButtons" class="menu">
