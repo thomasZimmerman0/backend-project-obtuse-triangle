@@ -21,6 +21,7 @@ router.post('/registration', async (req, res) =>{
             email: email,
             password: password,
             followers: '',
+            following: '',
             drawings: '',
             profilePic: '',
             roleID: 1
