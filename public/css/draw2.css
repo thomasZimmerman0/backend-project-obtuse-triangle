@@ -1,0 +1,32 @@
+:root {
+    --color-var: #888;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-var);
+  }
+  
+  .container {
+    display: flex;
+    width: 35%;
+    height: 35vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .color-selector-wrapper {
+    display: flex;
+    width: 75vmin;
+    flex-direction: column;
+  }
+  
+  #hue-picker {
+    width: 35%;
+    margin-bottom: 10px;
+  }
+  
+  #color-picker {
+    width: 35%;
+  }
