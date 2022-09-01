@@ -9,6 +9,8 @@
 
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <%- include ('partials/bootStrapCSS') %>
+  <link rel="stylesheet" href="css/canvasMenu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -16,12 +18,65 @@
   <header>
     <!-- place navbar here -->
   </header>
-  <main class="container bg-light" id="mainContainer">
+  <main class="container bg-light p-0" id="mainContainer">
     <canvas id="myCanvas" width="1000px" height="1000px" style="border:2px solid #000000; background-color: white;">
         Your browser does not support Drawing
     </canvas> 
     <button onclick="save()">save</button>
+    <div> <!--menu=-->
+      <menu id="menuButtons" class="menu">
     
+        <button id="drawButton" class="menu__item active" style="--bgColorItem: #ff8c00;" >
+            <i class="fa fa-pencil fa-3x"></i>
+        </button>
+
+        <button id="lineButton" class="menu__item" style="--bgColorItem: #ff8c00;" >
+          <i class="fa fa-arrows-v fa-3x"></i>
+      </button>
+    
+        <button id="squareButton" class="menu__item" style="--bgColorItem: #f54888;">
+            <i class="fa fa-square-o fa-3x"></i>
+        </button>
+        
+    
+        <button id="circleButton" class="menu__item" style="--bgColorItem: #4343f5;" >
+            <i class="fa fa-circle-o fa-3x"></i>
+        </button>
+        
+        <button id="eraserButton" class="menu__item" style="--bgColorItem: #e0b115;" > 
+            <i class="fa fa-eraser fa-3x"></i>
+        </button>
+
+        <button id="fillButton" class="menu__item" style="--bgColorItem: #e015d2;" > 
+            <i class="fa fa-bitbucket fa-3x"></i>
+        </button>
+    
+        <button id="clearButton" class="menu__item" style="--bgColorItem:#65ddb7;">
+            <i class="fa fa-bomb fa-3x"></i>
+        </button>
+
+        <button id="eyeButton" class="menu__item" style="--bgColorItem:#67dd65;">
+            <i class="fa fa-eyedropper fa-3x"></i>
+        </button>
+
+        <button id="zoomButton" class="menu__item" style="--bgColorItem:#dd6565;">
+            <i class="fa fa-search fa-3x"></i>
+        </button>
+    
+        <div class="menu__border"></div>
+    
+      </menu>
+    
+      <div class="svg-container">
+        <svg viewBox="0 0 202.9 45.5" >
+          <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
+            <path  d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
+              c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5
+              c9.2,3.6,17.6,4.2,23.3,4H6.7z"/>
+          </clipPath>
+        </svg>
+      </div>
+    </div>
 
 
 
@@ -34,6 +89,7 @@
   <!-- Bootstrap JavaScript Libraries -->
   <%- include ('partials/bootStrapLibraries') %> 
   <script src="scripts/canvas.js"></script>
+  <script src="scripts/canvasMenu.js"></script>
 
 </body>
 
