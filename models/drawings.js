@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   drawings.init({
     title: DataTypes.STRING,
+    body: DataTypes.TEXT,
     userID: DataTypes.INTEGER,
     is_published: DataTypes.BOOLEAN
   }, {
