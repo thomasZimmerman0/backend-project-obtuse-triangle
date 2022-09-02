@@ -1,7 +1,7 @@
 html {
 
     box-sizing: border-box;
-    --bgColorMenu : #1d1d27;
+    --bgColorMenu : rgba(0,0,0,0.5);
     --duration: .7s;    
 
 }
@@ -16,15 +16,17 @@ html *::after {
 
 body{
     
-    margin: 0;
-    display: flex;
+    /* margin: 0; */
+    display: block;
     height: 100vh;
-    overflow: hidden;
     align-items: center;
     justify-content: center;
     background-color: #ffb457;
     -webkit-tap-highlight-color: transparent;
     transition: background-color var(--duration);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
 
 }
 
@@ -35,11 +37,12 @@ body{
     /* Works well with 100% width  */
     width: 100%;
     font-size: 1.5em;
-    padding: 0 2.85em;
+    /* padding: 0 2.85em; */
     position: relative;
     align-items: center;
     justify-content: center;
     background-color: var(--bgColorMenu);
+    
     
 }
 
@@ -55,7 +58,7 @@ body{
     align-items: center;
     will-change: transform;
     justify-content: center;
-    padding: 0.55em 0 0.85em;
+    /* padding: 0.55em 0 0.85em; */
     transition: transform var(--timeOut , var(--duration));
     
 }
@@ -118,7 +121,7 @@ body{
 }
 
 .menu__border{
-
+    
     left: 0;
     bottom: 99%;
     width: 10.9em;
@@ -129,6 +132,9 @@ body{
     background-color: var(--bgColorMenu);
     transition: transform var(--timeOut , var(--duration));
     
+}
+.container{
+    width: 52.7%;
 }
 
 .svg-container {
@@ -145,3 +151,51 @@ body{
         font-size: .8em;
     }
 }
+
+header{
+    display:flex;
+    justify-content: space-between;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    
+    
+  }
+  
+  header div{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Pacifico;
+    margin: 0 2rem;
+  }
+  
+  header div i{
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  
+  
+  header nav{
+    padding: 1rem 2rem;
+  }
+  
+  nav ul li{
+    list-style: none;
+    display: inline;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+  
+  nav li a{
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: all 250ms ease-in;
+  }
+  
+  nav li a:hover{
+    background: rgba(255,255,255,.3);
+    color: black;
+  }
