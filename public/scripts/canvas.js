@@ -223,105 +223,196 @@ function pick(e, destination) {
   return rgba;
 }
 
-canvas.addEventListener('click',(e)=>{
-  if (lineButton) {
-    if(count == 0){
-      count = 1
-      console.log('running')
-      pointOne[0] = e.clientX - bounding.left
-      pointOne[1] = e.clientY - bounding.top
-      // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-    }
-    else if (count == 1){
-      ctx.lineWidth = strokeSize()
-      ctx.beginPath();
-      ctx.moveTo(pointOne[0], pointOne[1]);
-      ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
-      ctx.stroke();
-      count = 0
-    }
-  }
-  if (squareButton) {
-    if(count == 0){
-      count = 1
-      console.log('running')
-      pointOne[0] = e.clientX - bounding.left
-      pointOne[1] = e.clientY - bounding.top
-      // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-    }
-    else if (count == 1){
-      console.log('square')
-      ctx.lineWidth = strokeSize()
-      ctx.beginPath();
-      ctx.moveTo(pointOne[0], pointOne[1]);
-      ctx.lineTo(pointOne[0], e.clientY - bounding.top)
-      ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
-      ctx.lineTo(e.clientX - bounding.left, pointOne[1])
-      ctx.lineTo(pointOne[0], pointOne[1]);
-      ctx.stroke();
-      count = 0
-    }
-  }
-  if (circleButton) {
-    if(count == 0){
-      count = 1
-      console.log('running')
-      pointOne[0] = e.clientX - bounding.left
-      pointOne[1] = e.clientY - bounding.top
-      // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-    }
-    else if (count == 1){
-      ctx.lineWidth = strokeSize()
-      let xMid = ((Math.abs(pointOne[0]-(e.clientX - bounding.left)))/2)
-      let yMid = ((Math.abs(pointOne[1]-(e.clientY - bounding.top)))/2)
-      if(pointOne[0]<(e.clientX - bounding.left)){
-        xMid2 = xMid
-        xMid = pointOne[0]+xMid
+// canvas.addEventListener('click',(e)=>{
+//   if (lineButton) {
+//     if(count == 0){
+//       count = 1
+//       console.log('running')
+//       pointOne[0] = e.clientX - bounding.left
+//       pointOne[1] = e.clientY - bounding.top
+//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
+//     }
+//     else if (count == 1){
+//       ctx.lineWidth = strokeSize()
+//       ctx.beginPath();
+//       ctx.moveTo(pointOne[0], pointOne[1]);
+//       ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
+//       ctx.stroke();
+//       count = 0
+//     }
+//   }
+//   if (squareButton) {
+//     if(count == 0){
+//       count = 1
+//       console.log('running')
+//       pointOne[0] = e.clientX - bounding.left
+//       pointOne[1] = e.clientY - bounding.top
+//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
+//     }
+//     else if (count == 1){
+//       console.log('square')
+//       ctx.lineWidth = strokeSize()
+//       ctx.beginPath();
+//       ctx.moveTo(pointOne[0], pointOne[1]);
+//       ctx.lineTo(pointOne[0], e.clientY - bounding.top)
+//       ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
+//       ctx.lineTo(e.clientX - bounding.left, pointOne[1])
+//       ctx.lineTo(pointOne[0], pointOne[1]);
+//       ctx.stroke();
+//       count = 0
+//     }
+//   }
+//   if (circleButton) {
+//     if(count == 0){
+//       count = 1
+//       console.log('running')
+//       pointOne[0] = e.clientX - bounding.left
+//       pointOne[1] = e.clientY - bounding.top
+//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
+//     }
+//     else if (count == 1){
+//       ctx.lineWidth = strokeSize()
+//       let xMid = ((Math.abs(pointOne[0]-(e.clientX - bounding.left)))/2)
+//       let yMid = ((Math.abs(pointOne[1]-(e.clientY - bounding.top)))/2)
+//       if(pointOne[0]<(e.clientX - bounding.left)){
+//         xMid2 = xMid
+//         xMid = pointOne[0]+xMid
+//       }
+//       else{
+//         xMid2 = xMid
+//         xMid = (e.clientX - bounding.left)+xMid
+//       }
+//       if(pointOne[1]<(e.clientY - bounding.top)){
+//         yMid = pointOne[1]+yMid
+//       }
+//       else{
+//         yMid = (e.clientY - bounding.top)+yMid
+//       }
+//       console.log('circle')
+//       // console.log(count)
+//       console.log(xMid)
+//       // console.log(yMid)
+//       ctx.beginPath();
+//       ctx.arc(xMid,yMid,xMid2,0,Math.PI * 2, true)
+//       // ctx.moveTo(pointOne[0], pointOne[1]);
+//       // ctx.arcTo(pointOne[0], pointOne[1],e.clientX - bounding.left, e.clientY - bounding.top, 200)
+//       // ctx.arcTo(e.clientX - bounding.left, e.clientY - bounding.top,pointOne[0], pointOne[1], 200)
+//       // ctx.quadraticCurveTo(pointOne[0], pointOne[1], xMid, yMid)
+//       // ctx.quadraticCurveTo(e.clientX - bounding.left, e.clientY - bounding.top, xMid, yMid)
+//       ctx.stroke();
+//       count = 0
+//     }
+//   }
+//   if(eyeButton){
+//     pick(e, selectedColor)
+//   }
+// })
+
+
+  // console.log(widthOffset)
+
+canvas.addEventListener('mousedown', (e2) => {
+  console.log('mouse down')
+    bounding = canvas.getBoundingClientRect();
+    running = true
+    if (lineButton) {
+        console.log('running')
+        pointOne[0] = e2.clientX - bounding.left
+        pointOne[1] = e2.clientY - bounding.top
+        // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
       }
-      else{
-        xMid2 = xMid
-        xMid = (e.clientX - bounding.left)+xMid
-      }
-      if(pointOne[1]<(e.clientY - bounding.top)){
-        yMid = pointOne[1]+yMid
-      }
-      else{
-        yMid = (e.clientY - bounding.top)+yMid
-      }
-      console.log('circle')
-      // console.log(count)
-      console.log(xMid)
-      // console.log(yMid)
-      ctx.beginPath();
-      ctx.arc(xMid,yMid,xMid2,0,Math.PI * 2, true)
-      // ctx.moveTo(pointOne[0], pointOne[1]);
-      // ctx.arcTo(pointOne[0], pointOne[1],e.clientX - bounding.left, e.clientY - bounding.top, 200)
-      // ctx.arcTo(e.clientX - bounding.left, e.clientY - bounding.top,pointOne[0], pointOne[1], 200)
-      // ctx.quadraticCurveTo(pointOne[0], pointOne[1], xMid, yMid)
-      // ctx.quadraticCurveTo(e.clientX - bounding.left, e.clientY - bounding.top, xMid, yMid)
-      ctx.stroke();
-      count = 0
+    
+    if (squareButton) {
+        console.log('running')
+        pointOne[0] = e2.clientX - bounding.left
+        pointOne[1] = e2.clientY - bounding.top
+        // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5) 
+
     }
-  }
-  if(eyeButton){
-    pick(e, selectedColor)
-  }
+    if (circleButton) {
+        console.log('running')
+        pointOne[0] = e2.clientX - bounding.left
+        pointOne[1] = e2.clientY - bounding.top
+        // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
+
+      
+      
+    }
+    if(eyeButton){
+      pick(e2, selectedColor)
+    }
+  })
+
+body.addEventListener('mouseup', () => {
+  console.log('mouse up')
+    running = false
+    canvas.addEventListener('mouseup', (e2) => {
+    if (lineButton) {
+        ctx.lineWidth = strokeSize()
+        ctx.beginPath();
+        ctx.moveTo(pointOne[0], pointOne[1]);
+        ctx.lineTo(e2.clientX - bounding.left, e2.clientY - bounding.top);
+        ctx.stroke();
+
+      
+    }
+    if (squareButton) {
+
+        console.log('square')
+        ctx.lineWidth = strokeSize()
+        ctx.beginPath();
+        ctx.moveTo(pointOne[0], pointOne[1]);
+        ctx.lineTo(pointOne[0], e2.clientY - bounding.top)
+        ctx.lineTo(e2.clientX - bounding.left, e2.clientY - bounding.top);
+        ctx.lineTo(e2.clientX - bounding.left, pointOne[1])
+        ctx.lineTo(pointOne[0], pointOne[1]);
+        ctx.stroke();
+      
+    }
+    if (circleButton) {
+
+        ctx.lineWidth = strokeSize()
+        let xMid = ((Math.abs(pointOne[0]-(e2.clientX - bounding.left)))/2)
+        let yMid = ((Math.abs(pointOne[1]-(e2.clientY - bounding.top)))/2)
+        if(pointOne[0]<(e2.clientX - bounding.left)){
+          xMid2 = xMid
+          xMid = pointOne[0]+xMid
+        }
+        else{
+          xMid2 = xMid
+          xMid = (e2.clientX - bounding.left)+xMid
+        }
+        if(pointOne[1]<(e2.clientY - bounding.top)){
+          yMid = pointOne[1]+yMid
+        }
+        else{
+          yMid = (e2.clientY - bounding.top)+yMid
+        }
+        console.log('circle')
+        // console.log(count)
+        console.log(xMid)
+        // console.log(yMid)
+        ctx.beginPath();
+        ctx.arc(xMid,yMid,xMid2,0,Math.PI * 2, true)
+        // ctx.moveTo(pointOne[0], pointOne[1]);
+        // ctx.arcTo(pointOne[0], pointOne[1],e.clientX - bounding.left, e.clientY - bounding.top, 200)
+        // ctx.arcTo(e.clientX - bounding.left, e.clientY - bounding.top,pointOne[0], pointOne[1], 200)
+        // ctx.quadraticCurveTo(pointOne[0], pointOne[1], xMid, yMid)
+        // ctx.quadraticCurveTo(e.clientX - bounding.left, e.clientY - bounding.top, xMid, yMid)
+        ctx.stroke();
+
+    }
+    if(eraserButton){
+      ball.color = colorHold
+    }
 })
-
+})
 canvas.addEventListener('mousemove', (e) => {
-    // console.log(widthOffset)
-  
-  canvas.addEventListener('mousedown', () => {
-      bounding = canvas.getBoundingClientRect();
-      running = true
-
-  })
-  body.addEventListener('mouseup', () => {
-      running = false
-  })
   if (running) {
     if(penButton){
       if(eraserButton){
+        console.log(color)
+        colorHold = color
         ball.color = 'white';
       }
       else{
@@ -334,6 +425,7 @@ canvas.addEventListener('mousemove', (e) => {
     }
   
   }
+
 });
 
 
