@@ -35,6 +35,8 @@ app.use(require('./routes/contact.js'))
 app.use(require('./routes/profile.js'))
 app.use(require('./routes/draw2.js'))
 app.use(require('./routes/accounts.js'))
+app.use(require('./routes/followers'))
+app.use(require('./routes/following'))
 
 
 //-------------------------------------------------------------------------------------
