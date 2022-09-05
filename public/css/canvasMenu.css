@@ -19,6 +19,7 @@ body{
     /* margin: 0; */
     display: block;
     height: 100vh;
+    width: 100vw;
     align-items: center;
     justify-content: center;
     background-color: #ffb457;
@@ -27,6 +28,7 @@ body{
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
     background-size:cover;
     background-attachment: fixed;
+    margin-top: 10px;
 
 }
 
