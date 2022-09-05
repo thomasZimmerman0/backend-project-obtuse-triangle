@@ -3,32 +3,25 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
-// const path = require('path')
-// const multer = require('multer')
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'profile_images')
-//     },
-//     filename: (req, file, cb) => {
-//         console.log(file)
-//         cb(null, Date.now() + path.extname(file.originalname))
-//     }
-// })
+const isFollowing = async(user, profile)=>{
 
+    let followerString = profile.followers
+    let followerArray = []
 
-// const upload = multer({storage: storage})
+    if(followerString != null){
+        followerArray = followerString.split(', ')
+    }
 
-// router.get('/profile',auth, (req,res) => {
+    let userID = user.id.toString()
 
-   
-//     res.render('profile', {
+    if(followerArray.includes(userID)){
+        return true
+    } else {
+        return false
+    }
 
-//         username: req.user.userName,
-//         email: req.user.email
-        
-//     })
+}
 
-// })
 
 router.get('/profile/:id', async(req, res) => {
 
@@ -50,9 +43,6 @@ router.get('/profile/:id', async(req, res) => {
     if(followingString != null){
         followingArray = followingString.split(', ')
     }
-
-    console.log(followerArray);
-    console.log(followingArray)
     
     res.render('profile', {
         user : user,
@@ -60,6 +50,7 @@ router.get('/profile/:id', async(req, res) => {
         profilePic: user.profilePic,
         followers : followerArray,
         following : followingArray,
+        fStatus : await isFollowing(req.user, user)
     })
     
     
@@ -68,6 +59,34 @@ router.get('/profile/:id', async(req, res) => {
 // router.post("/profile", upload.single("image"), (req, res) =>{
 //     res.render('profile')
 // })
+
+router.get("/unfollow/:id", auth, async(req, res)=>{
+    let selectedID = req.params.id
+    const user = await db.users.findByPk(selectedID)
+    let followerString = user.followers
+
+    let unfollowID = req.user.id + ', '
+
+    followerString = followerString.replaceAll(unfollowID, '')
+
+    let updateFollow = await db.users.update({ followers: followerString}, {
+        where: {
+            userName: user.userName
+        }
+    })
+
+    let followingString = req.user.following
+
+    followingString = followingString.replaceAll(unfollowID, '')
+
+    let updateFollowers = await db.users.update({ following: followingString}, {
+        where: {
+            userName : req.user.userName
+        }
+    })
+
+    res.redirect(`/profile/${selectedID}`)
+})
 
 router.get("/follow/:id", auth, async (req, res)=>{
 
