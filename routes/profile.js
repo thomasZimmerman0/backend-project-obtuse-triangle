@@ -28,8 +28,11 @@ router.get('/profile/:id', async(req, res) => {
     console.log(followerArray);
     console.log(followingArray)
 
-    picture = await db.drawings.findByPk(3)
-    console.log(picture);
+    let drawingDB = await db.drawings.findByPk(2)
+    // picture = picture.body.replaceAll(' ', '+')
+    
+    let picture = drawingDB.body.replaceAll(' ', '+')
+
     
     res.render('profile', {
         user : user,
