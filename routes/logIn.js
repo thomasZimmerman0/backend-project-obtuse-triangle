@@ -6,7 +6,9 @@ const passport = require('passport')
 router.get('/logIn', (req,res) => {
 
    
-    res.render('logIn')
+    res.render('logIn', {
+        user : req.user
+    })
 })
 
 router.post('/logIn', passport.authenticate('local', {
