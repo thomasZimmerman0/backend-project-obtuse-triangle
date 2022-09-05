@@ -18,6 +18,21 @@
 
 <body id="body">
   <%- include ('partials/header') %>
+  <div class="d-none">
+    <% if (drawing) { %>
+     
+    
+      <% let picture = drawing.body.replaceAll(' ', '+');
+      let title = drawing.title;
+      let userID = drawing.userID;
+      let id = drawing.id %>
+      <img id="picture" src="<%= picture %>">
+      <div id="title"><%= title %></div>
+      <div id="id"><%= id %></div>
+      
+      <% } %>
+      
+  </div>
   <main class="container bg-light p-0" id="mainContainer">
     <canvas id="myCanvas" width="1010px" height="900px "style="border:2px solid #000000; background-color: white;">
         Your browser does not support Drawing
@@ -37,8 +52,8 @@
     </form>
     <form>
       <div class="form-group">
-        <label for="title" class="sr-only">Title</label>
-        <input type="text" name="title" id="title" class="form-control" placeholder="Title" >
+        <label for="titleForm" class="sr-only">Title</label>
+        <input type="text" name="titleForm" id="titleForm" class="form-control" placeholder="Title" >
       </div>
     </form>
     <button onclick="save()">save</button>

@@ -4,17 +4,34 @@ let body = document.querySelector('#body');
 let menuButtons = document.querySelector('#menuButtons')
 let stroke = document.querySelector("#stroke")
 
+if(document.querySelector("#picture")){
+  let picture = document.querySelector("#picture")
+  let title = document.querySelector("#title").innerHTML
+  let id = document.querySelector("#id").innerHTML
+  let titleForm = document.querySelector('#titleForm')
+}
+
+
+
 
 let running = false;
 
 
 
-function importImage() {
-  const img = new Image();
-  img.onload = () => {
-    ctx.drawImage(img, 0, 0);
-  };
-  img.src = "./images/newDrawing.png";
+function init() {
+  ctx.fillStyle = "white"
+  ctx.fillRect(0, 0, 1010, 1000);
+  ctx.fillStyle = "black"
+  if(document.querySelector("#picture")){
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = picture.src;
+  }
+  else{
+    id = false
+  }
 }
 
 
@@ -33,7 +50,7 @@ function strokeSize(){
 
 
 
-//--------------------------------------------------------------------COLOR SELECT--------------------------------------------------------------------------
+//--------------------------------------------------------------------COLOR SELECT-----------------------------------------------------------------
 
 
 
@@ -373,4 +390,4 @@ function save() {
 }
 
 
-importImage()
+init()
