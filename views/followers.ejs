@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Draw.io</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -27,24 +27,24 @@
 
   <section class="container-boxes">
 
-    <% for( let i = 0; i < user.length; i++ ) { %>
-
-      <div class="box">
-
-        <div class="icon">
-          <a href=""><i class="fas fa-fire"></i></a>
-        </div>
+    <% for( let i = 0; i < followers.length; i++ ) { %>
+          <div class="box">
+    
+            <div class="icon">
+              <a href=""><i class="fas fa-fire"></i></a>
+            </div>
+      
+            <div class="text">
+              <a href="">
+                <h3><%= followers[i].userName %> </h3>
+                <p><%= followers[i].email %> </p>
+              </a>
+            </div>
+      
+          </div>
   
-        <div class="text">
-          <a href="./profile/<%=user[i].id%> ">
-            <h3><%= user[i].userName %> </h3>
-            <p><%= user[i].email %> </p>
-          </a>
-        </div>
-  
-      </div>
-
-    <% } %> 
+       
+      <% } %>
     
     
   </section>
