@@ -10,6 +10,7 @@
   
   body{
     margin:0;
+    margin-top: 10px;
     padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
     background-size:cover;
@@ -107,6 +108,7 @@
     justify-content: space-around;
     align-items: flex-end;
     max-width: 80vw;
+  
      
   }
   
@@ -117,8 +119,8 @@
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
-    /* max-width: 350px; */
+    min-width: 350px;
+    max-width: 350px;
     max-height: 180px;
     min-height: 180px;
     transition: all 250ms ease-out;
@@ -159,6 +161,11 @@
   .text{
     padding: .5rem;
     text-align: center;
+    
+  }
+  .text img{
+    float: left;
+    display: flex;
     
   }
   
