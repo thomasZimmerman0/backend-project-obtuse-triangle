@@ -30,6 +30,8 @@ router.get('/profile/:id', async(req, res) => {
 
     res.render('profile', {
         user : user,
+        configName: "dfprnrmct",
+        profilePic: user.profilePic,
         followers : followerArray,
         following : followingArray
     })

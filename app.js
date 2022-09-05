@@ -36,8 +36,8 @@ app.use(require('./routes/profile.js'))
 app.use(require('./routes/canvasLibrary.js'))
 app.use(require('./routes/accounts.js'))
 app.use(require('./routes/followers.js'))
-app.use(require('./routes/following.js'))
 app.use(require('./routes/user_profile.js'))
+
 
 
 
