@@ -369,11 +369,8 @@ function save() {
   httpRequest.send(`title=${title}&body=${dataURL}`);
   // console.log(dataURL)
 
-    // const newImg = document.createElement('img');
 
-    // newImg.src = `${dataURL}`;
-    // document.body.appendChild(newImg);
-  // })
 }
+
 
 importImage()
