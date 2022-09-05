@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
+// fuck my life
 
 const passport = require('passport');
 require('./auth/passport-config')(passport)
