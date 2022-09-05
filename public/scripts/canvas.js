@@ -8,12 +8,13 @@ let stroke = document.querySelector("#stroke")
 let running = false;
 
 
+
 function importImage() {
   const img = new Image();
   img.onload = () => {
     ctx.drawImage(img, 0, 0);
   };
-  img.src = '';
+  img.src = "./images/newDrawing.png";
 }
 
 
@@ -201,7 +202,7 @@ menuButtons.addEventListener('click',(e)=>{
 
   }
   if(e.target.id == "clearButton" || e.target.parentElement.id == "clearButton"){
-    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.clearRect(0, 0, 1010, 1000);
     penButton = false
     lineButton = false
     squareButton = false
@@ -234,93 +235,6 @@ function pick(e, destination) {
 
   return rgba;
 }
-
-// canvas.addEventListener('click',(e)=>{
-//   if (lineButton) {
-//     if(count == 0){
-//       count = 1
-//       console.log('running')
-//       pointOne[0] = e.clientX - bounding.left
-//       pointOne[1] = e.clientY - bounding.top
-//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-//     }
-//     else if (count == 1){
-//       ctx.lineWidth = strokeSize()
-//       ctx.beginPath();
-//       ctx.moveTo(pointOne[0], pointOne[1]);
-//       ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
-//       ctx.stroke();
-//       count = 0
-//     }
-//   }
-//   if (squareButton) {
-//     if(count == 0){
-//       count = 1
-//       console.log('running')
-//       pointOne[0] = e.clientX - bounding.left
-//       pointOne[1] = e.clientY - bounding.top
-//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-//     }
-//     else if (count == 1){
-//       console.log('square')
-//       ctx.lineWidth = strokeSize()
-//       ctx.beginPath();
-//       ctx.moveTo(pointOne[0], pointOne[1]);
-//       ctx.lineTo(pointOne[0], e.clientY - bounding.top)
-//       ctx.lineTo(e.clientX - bounding.left, e.clientY - bounding.top);
-//       ctx.lineTo(e.clientX - bounding.left, pointOne[1])
-//       ctx.lineTo(pointOne[0], pointOne[1]);
-//       ctx.stroke();
-//       count = 0
-//     }
-//   }
-//   if (circleButton) {
-//     if(count == 0){
-//       count = 1
-//       console.log('running')
-//       pointOne[0] = e.clientX - bounding.left
-//       pointOne[1] = e.clientY - bounding.top
-//       // ctx.fillRect(e.clientX - bounding.left, e.clientY - bounding.top, 5, 5)
-//     }
-//     else if (count == 1){
-//       ctx.lineWidth = strokeSize()
-//       let xMid = ((Math.abs(pointOne[0]-(e.clientX - bounding.left)))/2)
-//       let yMid = ((Math.abs(pointOne[1]-(e.clientY - bounding.top)))/2)
-//       if(pointOne[0]<(e.clientX - bounding.left)){
-//         xMid2 = xMid
-//         xMid = pointOne[0]+xMid
-//       }
-//       else{
-//         xMid2 = xMid
-//         xMid = (e.clientX - bounding.left)+xMid
-//       }
-//       if(pointOne[1]<(e.clientY - bounding.top)){
-//         yMid = pointOne[1]+yMid
-//       }
-//       else{
-//         yMid = (e.clientY - bounding.top)+yMid
-//       }
-//       console.log('circle')
-//       // console.log(count)
-//       console.log(xMid)
-//       // console.log(yMid)
-//       ctx.beginPath();
-//       ctx.arc(xMid,yMid,xMid2,0,Math.PI * 2, true)
-//       // ctx.moveTo(pointOne[0], pointOne[1]);
-//       // ctx.arcTo(pointOne[0], pointOne[1],e.clientX - bounding.left, e.clientY - bounding.top, 200)
-//       // ctx.arcTo(e.clientX - bounding.left, e.clientY - bounding.top,pointOne[0], pointOne[1], 200)
-//       // ctx.quadraticCurveTo(pointOne[0], pointOne[1], xMid, yMid)
-//       // ctx.quadraticCurveTo(e.clientX - bounding.left, e.clientY - bounding.top, xMid, yMid)
-//       ctx.stroke();
-//       count = 0
-//     }
-//   }
-//   if(eyeButton){
-//     pick(e, selectedColor)
-//   }
-// })
-
-
   // console.log(widthOffset)
 
 canvas.addEventListener('mousedown', (e2) => {
@@ -462,4 +376,4 @@ function save() {
   // })
 }
 
-
+importImage()
