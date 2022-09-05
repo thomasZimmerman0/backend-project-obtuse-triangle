@@ -52,6 +52,7 @@ body {
     background-size:cover;
     background-attachment: fixed;
   font-family: "Open sans", sans-serif;
+  margin-top: 10px;
 }
 a {
   text-decoration: none;

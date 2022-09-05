@@ -9,8 +9,10 @@
         <li><a href="/drawings">Draw</a></li>
         <li><a href="./contact">Contact</a></li>
         <% if(user) { %>
-          <li><a href="./user_profile/<%= user.id %> ">Hi <%=user.userName%>!</a></li>
+          <li><a href="./user_profile/<%= user.id %> ">Profile</a></li>
+          <li><a href="./logout">Logout</a></li>
         <% } %>
+
 
       </ul>
     </nav>

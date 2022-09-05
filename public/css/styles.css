@@ -10,6 +10,7 @@
   
   body{
     margin:0;
+    margin-top: 10px;
     padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
     background-size:cover;
@@ -107,20 +108,24 @@
     justify-content: space-around;
     align-items: flex-end;
     max-width: 80vw;
+  
+     
   }
   
   .box{
     background: rgba(255,255,255,.5);
     margin: 1rem;
     padding: .5rem;
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
     align-items: center;
+    min-width: 350px;
     max-width: 350px;
     max-height: 180px;
     min-height: 180px;
     transition: all 250ms ease-out;
     border-radius: 10px;
+    
   }
   
   .box:hover{
@@ -131,6 +136,7 @@
   .box a{
     text-decoration: none;
     color: black;
+
   }
   
   .icon{
@@ -142,16 +148,25 @@
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 0;
+
   }
   
   .text p{
     margin-top: 1rem;
     line-height: 1.5rem;
-    text-align: left;
+
+    
   }
   
   .text{
     padding: .5rem;
+    text-align: center;
+    
+  }
+  .text img{
+    float: left;
+    display: flex;
+    
   }
   
   
@@ -197,6 +212,22 @@
     .titles h1{
     font-size: 3rem;
     }
+  }
+  #mainContainer{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: fill;
+    background: rgba(255,255,255,.7);
+  }
+
+  .mb-5{
+
+    display: inline-flex;
+    max-width: 350px;
+    justify-content: center;
+    object-fit: fill;
+    
+
   }
   
   
