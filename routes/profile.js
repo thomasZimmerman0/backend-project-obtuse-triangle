@@ -3,6 +3,25 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
+const isFollowing = async(user, profile)=>{
+
+    let followerString = profile.followers
+    let followerArray = []
+
+    if(followerString != null){
+        followerArray = followerString.split(', ')
+    }
+
+    let userID = user.id.toString()
+
+    if(followerArray.includes(userID)){
+        return true
+    } else {
+        return false
+    }
+
+}
+
 
 router.get('/profile/:id', async(req, res) => {
 
@@ -24,15 +43,6 @@ router.get('/profile/:id', async(req, res) => {
     if(followingString != null){
         followingArray = followingString.split(', ')
     }
-
-    console.log(followerArray);
-    console.log(followingArray)
-
-    let drawingDB = await db.drawings.findByPk(2)
-    // picture = picture.body.replaceAll(' ', '+')
-    
-    let picture = drawingDB.body.replaceAll(' ', '+')
-
     
     res.render('profile', {
         user : user,
@@ -40,7 +50,7 @@ router.get('/profile/:id', async(req, res) => {
         profilePic: user.profilePic,
         followers : followerArray,
         following : followingArray,
-        picture : picture
+        fStatus : await isFollowing(req.user, user)
     })
     
     
@@ -49,6 +59,34 @@ router.get('/profile/:id', async(req, res) => {
 // router.post("/profile", upload.single("image"), (req, res) =>{
 //     res.render('profile')
 // })
+
+router.get("/unfollow/:id", auth, async(req, res)=>{
+    let selectedID = req.params.id
+    const user = await db.users.findByPk(selectedID)
+    let followerString = user.followers
+
+    let unfollowID = req.user.id + ', '
+
+    followerString = followerString.replaceAll(unfollowID, '')
+
+    let updateFollow = await db.users.update({ followers: followerString}, {
+        where: {
+            userName: user.userName
+        }
+    })
+
+    let followingString = req.user.following
+
+    followingString = followingString.replaceAll(unfollowID, '')
+
+    let updateFollowers = await db.users.update({ following: followingString}, {
+        where: {
+            userName : req.user.userName
+        }
+    })
+
+    res.redirect(`/profile/${selectedID}`)
+})
 
 router.get("/follow/:id", auth, async (req, res)=>{
 

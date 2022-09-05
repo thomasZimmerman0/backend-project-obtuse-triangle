@@ -18,6 +18,7 @@ router.get('/user_profile/:id', auth, async(req, res) => {
 
     let selectedID = req.params.id
     const user = await db.users.findByPk(selectedID)
+    const drawingsDB = await db.drawings.findAll({})
 
     // console.log(user.userName);
 
@@ -35,12 +36,27 @@ router.get('/user_profile/:id', auth, async(req, res) => {
         followingArray = followingString.split(', ')
     }
 
+    let drawings = []
+
+    for(let i = 0; i < drawingsDB.length; i++){
+        console.log(drawingsDB[i].userID);
+        console.log(req.user.id);
+
+        if(drawingsDB[i].userID == req.user.id){
+            let drawing = drawingsDB[i].body.replaceAll(' ', '+')
+            drawings.push(drawing)
+        }
+    }
+
+    console.log(drawings);
+    
     res.render('user_profile', {
         user : user,
         followers : followerArray,
         following : followingArray,
         profilePic : req.user.profilePic,
-        configName : cloudinaryConfig.cloud_name 
+        configName : cloudinaryConfig.cloud_name,
+        drawings: drawings 
     })
 
 })
