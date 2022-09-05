@@ -15,7 +15,7 @@
 
   <section class="container-boxes">
 
-    <% for( let i = 0; i < user.length; i++ ) { %>
+    <% for( let i = 0; i < users.length; i++ ) { %>
 
       <div class="box">
 
@@ -24,9 +24,9 @@
         </div>
   
         <div class="text">
-          <a href="./profile/<%=user[i].id%> ">
-            <h3><%= user[i].userName %> </h3>
-            <p><%= user[i].email %> </p>
+          <a href="./profile/<%=users[i].id%> ">
+            <h3><%= users[i].userName %> </h3>
+            <p><%= users[i].email %> </p>
           </a>
         </div>
   

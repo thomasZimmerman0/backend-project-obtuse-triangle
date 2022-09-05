@@ -3,13 +3,15 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
-router.get('/accounts', async (req,res) => {
+router.get('/accounts',auth, async (req,res) => {
 
-    const user = await db.users.findAll({})
+    const users = await db.users.findAll({})
 
 
     res.render('accounts', {
-        user : user
+        user : req.user,
+        configName : "dfprnrmct",
+        users : users
     })
 })
 

@@ -5,7 +5,10 @@ const db = require('../models')
 
 router.get('/registration', (req,res) => {
 
-    res.render('registration')
+    res.render('registration', {
+
+        user : "null" 
+    })
 })
 
 router.post('/registration', async (req, res) =>{
