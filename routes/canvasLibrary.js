@@ -10,11 +10,13 @@ router.get('/drawings/', auth, async (req, res)=>{
         const drawings = await db.drawings.findAll({where:{userID: selectedID}})
         console.log(drawings)
         res.render('canvasLibrary', {
+            user : req.user,
             drawings: drawings
         })
     } 
     catch (error) {
         res.render('canvasLibrary', {
+            user : req.user,
             drawings: false
         })
     }
