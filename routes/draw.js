@@ -4,7 +4,9 @@ const router = express.Router();
 router.get('/draw', (req,res) => {
 
    
-    res.render('draw')
+    res.render('draw', {
+        user : req.user
+    })
 })
 
 router.post('/draw', async (req,res) => {
