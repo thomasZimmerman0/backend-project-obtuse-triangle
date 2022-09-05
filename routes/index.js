@@ -11,7 +11,7 @@ router.get('/', (req,res) => {
     })}
 
     res.render('index', {
-        username: 'anon'})
+        user: false})
 
     
 })
