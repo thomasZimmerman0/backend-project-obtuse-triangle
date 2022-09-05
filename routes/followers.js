@@ -3,12 +3,9 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
-router.get('/followers/:id', async (req,res) => {
+const followerFunction = async(user, type)=>{
 
-    let selectedID = req.params.id
-    const user = await db.users.findByPk(selectedID)
-
-    let followerString = user.followers
+    let followerString = user[type]
     let followerArray = []
 
     if(followerString != null){
@@ -24,9 +21,34 @@ router.get('/followers/:id', async (req,res) => {
         }
     }
 
+    return followers
+}
+
+router.get('/followers/:id', async (req,res) => {
+
+    let selectedID = req.params.id
+    const user = await db.users.findByPk(selectedID)
+
+    let followers = await followerFunction(user, 'followers')
+
     res.render('followers', {
         followers : followers,
-        user : req.user
+        user : user
+    })
+})
+
+router.get('/following/:id', async (req,res) => {
+
+    let selectedID = req.params.id
+    const user = await db.users.findByPk(selectedID)
+
+    let followers = await followerFunction(user, 'following')
+
+    res.render('followers', {
+        followers : followers,
+
+        user : user
+
     })
 })
 
