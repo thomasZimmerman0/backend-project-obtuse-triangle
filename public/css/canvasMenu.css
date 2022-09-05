@@ -42,9 +42,12 @@ body{
     align-items: center;
     justify-content: center;
     background-color: var(--bgColorMenu);
+    bottom: 1px;
+    
     
     
 }
+
 
 .menu__item{
     
@@ -198,4 +201,17 @@ header{
   nav li a:hover{
     background: rgba(255,255,255,.3);
     color: black;
+  }
+  
+  #myCanvas{
+    width: 100%;
+  }
+
+  .mb-5{
+    display: flex;
+    justify-content: center;
+  }
+
+  h2{
+    text-align: center;
   }

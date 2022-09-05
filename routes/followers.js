@@ -25,7 +25,8 @@ router.get('/followers/:id', async (req,res) => {
     }
 
     res.render('followers', {
-        followers : followers
+        followers : followers,
+        user : req.user
     })
 })
 

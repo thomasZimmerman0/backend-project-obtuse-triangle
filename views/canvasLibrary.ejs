@@ -9,7 +9,7 @@
 
   <!-- Bootstrap CSS v5.2.0-beta1 -->
   <%- include ('partials/bootStrapCSS') %>
-  <link rel="stylesheet" href="css/canvasMenu.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -18,10 +18,16 @@
 
 <body id="body">
   <%- include ('partials/header') %>
+  <section class="titles">
+
+    <h1>New Drawing</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam maiores consectetur, laboriosam rerum obcaecati.</p>
+
+  </section>
   <main class="container bg-light p-0" id="mainContainer">
 
-    <h2>New Drawing</h2>
-    <a href="/draw"> <img src="/images/newDrawing.png" alt="new drawing" class="mb-5" width="200px"> </a>
+
+    <a href="/draw"> <img src="/images/newDrawing1.png" alt="new drawing" class="mb-5" width="200px"> </a>
     <% if(drawings.length > 0){ %>
       <% for( let index = 0; index < drawings.length; index++ ) { %>
           <h2><%= drawings[index].title %> </h2>

@@ -11,9 +11,18 @@
 
 <body>
 
+
   <%- include ('partials/header') %>
+  <section class="titles">
+
+    <h1>Accounts</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam maiores consectetur, laboriosam rerum obcaecati.</p>
+
+  </section>
 
   <section class="container-boxes">
+
+    <section class="titles">
 
     <% for( let i = 0; i < user.length; i++ ) { %>
 
@@ -27,12 +36,14 @@
           <a href="./profile/<%=user[i].id%> ">
             <h3><%= user[i].userName %> </h3>
             <p><%= user[i].email %> </p>
+            
           </a>
         </div>
   
       </div>
 
     <% } %> 
+  </section>
     
     
   </section>
