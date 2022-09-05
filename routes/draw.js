@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 let db = require('../models')
+const auth = require('../auth')
 
 router.get('/draw', (req,res) => {
 
@@ -21,27 +22,19 @@ router.get('/draw/:id', async(req,res) => {
     })
 })
 
-router.post('/draw', async (req,res) => {
+router.post('/draw', auth, async (req,res) => {
 
     try {
-        let{ID, title, body, userID} = req.body;
-        let existCheck = await db.drawings.findByPk(ID);
-        if(existCheck){
-            let updateDrawing = await db.drawings.update({ title: title, body: body}, {
-                where: {
-                    id: ID
-                }
-            })
-        }
-        else{
+        let{body, title} = req.body;
+
             let insertRecord = await db.drawings.create({
                 title: title, 
                 body: body,
-                userID: userID,
+                userID: req.user.id,
                 is_published: false
             })
         }
-    } 
+
     catch (error) {
         console.log(error)
     }

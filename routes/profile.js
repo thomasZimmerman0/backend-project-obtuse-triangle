@@ -53,12 +53,6 @@ router.get('/profile/:id', async(req, res) => {
 
     console.log(followerArray);
     console.log(followingArray)
-
-    let drawingDB = await db.drawings.findByPk(2)
-    // picture = picture.body.replaceAll(' ', '+')
-    
-    let picture = drawingDB.body.replaceAll(' ', '+')
-
     
     res.render('profile', {
         user : user,
@@ -66,7 +60,6 @@ router.get('/profile/:id', async(req, res) => {
         profilePic: user.profilePic,
         followers : followerArray,
         following : followingArray,
-        picture : picture
     })
     
     
