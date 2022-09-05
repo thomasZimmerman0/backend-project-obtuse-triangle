@@ -444,10 +444,12 @@ canvas.addEventListener('mousemove', (e) => {
 function save() {
   const httpRequest = new XMLHttpRequest();
   let dataURL = canvas.toDataURL()
-  httpRequest.onreadystatechange = alertContents;
-  httpRequest.open("POST", "draw.js", true);
+
+  console.log(dataURL)
+
+  httpRequest.open("POST", "/draw", true);
   httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  httpRequest.send(`ID=${id}&title=${title}&body=${dataURL}&userID=${userID} `);
+  httpRequest.send(`ID=3&title='DirtyDawgs'&body=${dataURL}&userID=10`);
   // console.log(dataURL)
 
     // const newImg = document.createElement('img');

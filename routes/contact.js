@@ -5,7 +5,8 @@ const auth = require('../auth')
 router.get('/contact',auth, (req,res) => {
 
     res.render('contact', {
-        user:req.user
+
+        user: req.user
     })
 })
 
