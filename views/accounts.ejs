@@ -22,34 +22,28 @@
 
   <section class="container-boxes">
 
-<<<<<<< HEAD
-    <% for( let i = 0; i < users.length; i++ ) { %>
-=======
     <section class="titles">
 
-    <% for( let i = 0; i < user.length; i++ ) { %>
->>>>>>> f9eddb5 (mihoyminoy)
+    <% for( let i = 0; i < users.length; i++ ) { %>
 
+      
       <div class="box">
+        <a href="./profile/<%=users[i].id%> ">
+        <img class="avatar" src="https://res.cloudinary.com/<%=configName%>/image/upload/w_100,h_100,c_fill,q_100/<%=users[i].profilePic%>.jpg">
 
         <div class="icon">
           <a href=""><i class="fas fa-fire"></i></a>
         </div>
   
         <div class="text">
-<<<<<<< HEAD
+
           <a href="./profile/<%=users[i].id%> ">
             <h3><%= users[i].userName %> </h3>
             <p><%= users[i].email %> </p>
-=======
-          <a href="./profile/<%=user[i].id%> ">
-            <h3><%= user[i].userName %> </h3>
-            <p><%= user[i].email %> </p>
-            
->>>>>>> f9eddb5 (mihoyminoy)
           </a>
+          
         </div>
-  
+      </a>
       </div>
 
     <% } %> 
