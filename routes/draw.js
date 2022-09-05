@@ -4,9 +4,20 @@ let db = require('../models')
 
 router.get('/draw', (req,res) => {
 
-   
     res.render('draw', {
-        user : req.user
+        user : req.user,
+    })
+})
+
+router.get('/draw/:id', async(req,res) => {
+
+    const drawingID = req.params.id
+   
+    const drawing = await db.drawing.findByPk(drawingID)
+
+    res.render('draw', {
+        user : req.user,
+        drawing : drawing
     })
 })
 

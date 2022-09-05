@@ -3,14 +3,7 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
-<<<<<<< HEAD
-router.get('/accounts', async (req,res) => {
 
-    const user = await db.users.findAll({})
-
-
-    res.render('accounts', {
-=======
 const followerFunction = async(user, type)=>{
 
     let followerString = user[type]
@@ -41,7 +34,6 @@ router.get('/followers/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
-<<<<<<< HEAD
         user : user
     })
 })
@@ -55,11 +47,7 @@ router.get('/following/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
->>>>>>> 676998f (fixed followers pages and profile pics work on accounts that are not the users)
         user : user
-=======
-        user : req.user
->>>>>>> f9eddb5 (mihoyminoy)
     })
 })
 
