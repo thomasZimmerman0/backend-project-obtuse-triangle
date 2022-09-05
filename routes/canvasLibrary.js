@@ -14,7 +14,9 @@ router.get('/drawings/', auth, async (req, res)=>{
         })
     } 
     catch (error) {
-        res.render('canvasLibrary')
+        res.render('canvasLibrary', {
+            drawings: false
+        })
     }
 
 
