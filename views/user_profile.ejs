@@ -13,11 +13,16 @@
         <div class="profile-user-page card">
            <div class="img-user-profile">
              <img class="profile-bgHome" src="https://cdn.wallpapersafari.com/23/96/sSjCqQ.jpg" />
-             <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="jofpin"/>
-                </div>
-                <form action="/follow/<%= user.id %> ">
-                  <button>Follow</button>
-                </form>
+            
+             
+             <img class="avatar" src="https://res.cloudinary.com/<%=configName%>/image/upload/w_100,h_100,c_fill,q_100/<%=profilePic%>.jpg">
+             <form id="upload-form">
+                <input id="file-field" type="file"/>
+                <button type="submit">Upload</button>
+            </form>    
+
+
+            </div>
                <div class="user-profile-data">
                  <h1><%= user.userName %> </h1>
                  <p><%= user.email %> </p>
@@ -35,6 +40,7 @@
             <input type="file" name="image">
             <input type="submit">
          </form> -->
-    
+         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+         <script src="/client-side.js"></script>
 </body>
 </html>

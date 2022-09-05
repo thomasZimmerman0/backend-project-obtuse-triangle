@@ -17,22 +17,9 @@
 
 
 <body id="body">
-  <header>
-    <div>
-      <i class="fas fa-atom"></i>
-      <p>Draw.io</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Draw</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="./contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%- include ('partials/header') %>
   <main class="container bg-light p-0" id="mainContainer">
-    <canvas id="myCanvas" width="1000px" height="1000px" style="border:2px solid #000000; background-color: white;">
+    <canvas id="myCanvas" width="500px" height="500px" style="border:2px solid #000000; background-color: white;">
         Your browser does not support Drawing
     </canvas> 
     <div class="container">
@@ -55,7 +42,7 @@
             <i class="fa fa-pencil fa-3x"></i>
         </button>
 
-        <button id="lineButton" class="menu__item" style="--bgColorItem: #ff8c00;" >
+        <button id="lineButton" class="menu__item" style="--bgColorItem: #d0ff00;" >
           <i class="fa fa-arrows-v fa-3x"></i>
       </button>
     
@@ -71,10 +58,6 @@
         <button id="eraserButton" class="menu__item" style="--bgColorItem: #e0b115;" > 
             <i class="fa fa-eraser fa-3x"></i>
         </button>
-
-        <button id="fillButton" class="menu__item" style="--bgColorItem: #e015d2;" > 
-            <i class="fa fa-bitbucket fa-3x"></i>
-        </button>
     
         <button id="clearButton" class="menu__item" style="--bgColorItem:#65ddb7;">
             <i class="fa fa-bomb fa-3x"></i>
@@ -84,9 +67,6 @@
             <i class="fa fa-eyedropper fa-3x"></i>
         </button>
 
-        <button id="zoomButton" class="menu__item" style="--bgColorItem:#dd6565;">
-            <i class="fa fa-search fa-3x"></i>
-        </button>
     
         <div class="menu__border"></div>
     

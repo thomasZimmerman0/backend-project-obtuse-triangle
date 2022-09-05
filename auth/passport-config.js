@@ -19,12 +19,12 @@ const init = (passport) => {
 
             console.log(email, password);
             let records = await db.users.findAll({where: {email:email}})// [{}]
-
-            if(records){
+            console.log(records)
+            if(records[0]){
 
                 let record = records[0]
                 //get the db password and compare it to the password that was entered in the form 
-
+                
                 bcrypt.compare(password, record.password, (err,  match)=>{
 
                     if(match){
@@ -39,6 +39,7 @@ const init = (passport) => {
                 })
             }
             else{
+                console.log('no data')
                 // no user in our dabase 
                 return done(null, false)
             }

@@ -7,6 +7,18 @@ let stroke = document.querySelector("#stroke")
 
 let running = false;
 
+
+function importImage() {
+  const img = new Image();
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = '';
+}
+
+
+
+
 function strokeSize(){
   if(stroke.value){
     console.log(stroke.value)
@@ -140,7 +152,7 @@ let pointTwo = []
 menuButtons.addEventListener('click',(e)=>{
   
   start = false
-  canvas.removeEventListener
+  
   console.log(e.target)
   if(e.target.id == "drawButton" || e.target.parentElement.id == "drawButton"){
     ball.color = 'black';
@@ -430,15 +442,19 @@ canvas.addEventListener('mousemove', (e) => {
 
 
 function save() {
+  const httpRequest = new XMLHttpRequest();
   let dataURL = canvas.toDataURL()
-  console.log(dataURL)
+  httpRequest.onreadystatechange = alertContents;
+  httpRequest.open("POST", "draw.js", true);
+  httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  httpRequest.send(`ID=${id}&title=${title}&body=${dataURL}&userID=${userID} `);
+  // console.log(dataURL)
 
-    const newImg = document.createElement('img');
+    // const newImg = document.createElement('img');
 
-    newImg.src = `dataURL`;
-    document.body.appendChild(newImg);
+    // newImg.src = `${dataURL}`;
+    // document.body.appendChild(newImg);
   // })
 }
-
 
 
