@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+let db = require('../models')
 
 router.get('/draw', (req,res) => {
 
@@ -10,9 +11,10 @@ router.get('/draw', (req,res) => {
 })
 
 router.post('/draw', async (req,res) => {
+
     try {
         let{ID, title, body, userID} = req.body;
-        let existCheck = await db.drawings.findByPK(ID);
+        let existCheck = await db.drawings.findByPk(ID);
         if(existCheck){
             let updateDrawing = await db.drawings.update({ title: title, body: body}, {
                 where: {

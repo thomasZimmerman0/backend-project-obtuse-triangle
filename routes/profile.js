@@ -54,12 +54,16 @@ router.get('/profile/:id', async(req, res) => {
     console.log(followerArray);
     console.log(followingArray)
 
+    picture = await db.drawings.findByPk(3)
+    console.log(picture);
+    
     res.render('profile', {
         user : user,
         configName: "dfprnrmct",
         profilePic: user.profilePic,
         followers : followerArray,
-        following : followingArray
+        following : followingArray,
+        picture : picture
     })
     
     
