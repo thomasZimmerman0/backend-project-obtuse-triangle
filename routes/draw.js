@@ -4,14 +4,15 @@ const auth = require('../auth')
 let db = require('../models')
 const auth = require('../auth')
 
-router.get('/draw', (req,res) => {
+router.get('/draw',auth, (req,res) => {
 
     res.render('draw', {
         user : req.user,
+        drawing : false
     })
 })
 
-router.get('/draw/:id', async(req,res) => {
+router.get('/draw/:id',auth, async(req,res) => {
 
     const drawingID = req.params.id
    
@@ -26,7 +27,8 @@ router.get('/draw/:id', async(req,res) => {
 router.post('/draw', auth, async (req,res) => {
 
     try {
-        let{ID, title, body, userID} = req.body;
+        console.log('working?')
+        let{ID, title, body} = req.body;
         let existCheck = await db.drawings.findByPk(ID);
         if(existCheck){
             let updateDrawing = await db.drawings.update({ title: title, body: body}, {
@@ -36,7 +38,7 @@ router.post('/draw', auth, async (req,res) => {
             })
         }
         else{
-            
+            console.log('create')
             let insertRecord = await db.drawings.create({
                 title: title, 
                 body: body,
