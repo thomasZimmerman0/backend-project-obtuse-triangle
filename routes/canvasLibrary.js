@@ -4,7 +4,7 @@ const auth = require('../auth')
 let db = require('../models')
 
 
-router.get('/drawings/', auth, async (req, res)=>{
+router.get('/drawings', auth, async (req, res)=>{
         let selectedID = req.params.id
     try {
         const drawings = await db.drawings.findAll({where:{userID: selectedID}})
@@ -29,12 +29,13 @@ router.get('/drawings/', auth, async (req, res)=>{
 
 })
 
-router.post('/drawings/:id', async (req, res)=>{
+// router.post('/drawings/:id', async (req, res)=>{
 
-    let drawing = req.params.drawing
+//     let drawing = req.params.drawing
+//     console.log(drawing)
 
-    res.redirect('/'+drawing)
-})
+//     res.redirect('/draw'+drawing)
+// })
 
 
 module.exports = router;
