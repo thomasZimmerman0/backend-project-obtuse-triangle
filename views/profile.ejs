@@ -19,10 +19,16 @@
               <img class="avatar" src="https://res.cloudinary.com/<%=configName%>/image/upload/w_100,h_100,c_fill,q_100/<%=profilePic%>.jpg">
              <% } %> 
 
-                </div>
+            </div>
+          <% if (fStatus) { %>
+              <form action="/unfollow/<%= user.id %> ">
+                <button>Unollow</button>
+              </form>
+          <% } else { %>
                 <form action="/follow/<%= user.id %> ">
                   <button>Follow</button>
                 </form>
+           <% } %>
                <div class="user-profile-data">
                  <h1><%= user.userName %> </h1>
                  <p><%= user.email %> </p>
