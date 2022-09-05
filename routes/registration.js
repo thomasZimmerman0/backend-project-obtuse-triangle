@@ -5,9 +5,14 @@ const db = require('../models')
 
 router.get('/registration', (req,res) => {
 
+<<<<<<< HEAD
     res.render('registration', {
 
         user : "null" 
+=======
+    res.render('registration',{
+        user : req.user
+>>>>>>> f9eddb5 (mihoyminoy)
     })
 })
 

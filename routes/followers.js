@@ -41,6 +41,7 @@ router.get('/followers/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
+<<<<<<< HEAD
         user : user
     })
 })
@@ -56,6 +57,9 @@ router.get('/following/:id', async (req,res) => {
         followers : followers,
 >>>>>>> 676998f (fixed followers pages and profile pics work on accounts that are not the users)
         user : user
+=======
+        user : req.user
+>>>>>>> f9eddb5 (mihoyminoy)
     })
 })
 
