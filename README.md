@@ -32,7 +32,7 @@ The minimum viable product for this website was the ability to create and store 
 ## Dev Team
 
 [Austin Desana:](https://github.com/adesana)
--
+- Primary designer and UI/UX designer. Created a hue selector through javascript to select a color for the drawing. Created the profile page with a follow and unfollow button.
 
 [Ryan Kovlaske:](https://github.com/Rkovl)
 -
