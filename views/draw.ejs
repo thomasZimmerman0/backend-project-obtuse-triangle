@@ -18,6 +18,21 @@
 
 <body id="body">
   <%- include ('partials/header') %>
+  <div class="d-none">
+    <% if (drawing) { %>
+     
+    
+      <% let picture = drawing.body.replaceAll(' ', '+');
+      let title = drawing.title;
+      let userID = drawing.userID;
+      let id = drawing.id %>
+      <img id="picture" src="<%= picture %>">
+      <div id="title"><%= title %></div>
+      <div id="id"><%= id %></div>
+      
+      <% } %>
+      
+  </div>
   <main class="container bg-light p-0" id="mainContainer">
     <canvas id="myCanvas" width="1010px" height="900px "style="border:2px solid #000000; background-color: white;">
         Your browser does not support Drawing
@@ -32,10 +47,11 @@
       <div class="form-group">
         <label for="stroke" class="sr-only">Strock Size</label>
         <input type="number" name="stroke" id="stroke" class="form-control" placeholder="10px" >
-        <input type="text" name="title" id="title" class="form-control" placeholder="title" >
+        <input type="text" name="titleForm" id="titleForm" class="form-control" placeholder="Title" >
       </div>
     </form>
-    <button onclick="save()">Save</button>
+    <button onclick="save()">save</button>
+    <!-- <button onclick="part2()">part2</button> -->
     <div> <!--menu=-->
       <menu id="menuButtons" class="menu">
     
