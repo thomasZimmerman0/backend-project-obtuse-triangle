@@ -38,7 +38,9 @@ The minimum viable product for this website was the ability to create and store 
 -
 
 [Ryan Kovlaske:](https://github.com/Rkovl)
--Primary developer for the canvas feture in JavaScript, setting up all aspects of drawing and connecting the canvas to the database to gather change or add data.
+
+Primary developer for the canvas feature in JavaScript, setting up all aspects of drawing and connecting the canvas to the database to gather, change or add data; Using HTML, CSS, JS, Node, Express, PostgresSQL, EJS, Cookie-Session
 
 [Thomas Zimmerman:](https://github.com/clintwestwords)
--Primary developer for setting up the sequelize database associated with this webpage, set up passport functionality for user sessions and individual accounts, set up cloudinary image handling for node.js to give users a specific profile picture, added functionality for users to follow and unfollow each other, wrote this README file.
+
+Primary developer for setting up the sequelize database associated with this webpage, set up passport functionality for user sessions and individual accounts, set up cloudinary image handling for node.js to give users a specific profile picture, added functionality for users to follow and unfollow each other, wrote this README file.
