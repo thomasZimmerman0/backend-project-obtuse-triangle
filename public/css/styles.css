@@ -117,7 +117,7 @@
     margin: 1rem;
     padding: .5rem;
     display: inline-flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     min-width: 350px;
     max-width: 350px;
@@ -160,7 +160,7 @@
   
   .text{
     padding: .5rem;
-    text-align: center;
+    word-wrap: break-word;
     
   }
   .text img{
@@ -220,13 +220,12 @@
     background: rgba(255,255,255,.7);
   }
 
+
   .mb-5{
 
-    display: inline-flex;
-    max-width: 350px;
-    justify-content: center;
-    object-fit: fill;
-    
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
 
   }
   
