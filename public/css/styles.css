@@ -125,6 +125,7 @@
     min-height: 180px;
     transition: all 250ms ease-out;
     border-radius: 10px;
+    box-sizing: border-box;
     
   }
   
@@ -159,8 +160,10 @@
   }
   
   .text{
+
     padding: .5rem;
     word-wrap: break-word;
+
     
   }
   .text img{
