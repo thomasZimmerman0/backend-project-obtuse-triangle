@@ -38,3 +38,5 @@ module.exports = {
     await queryInterface.dropTable('drawings');
   }
 };
+
+//
