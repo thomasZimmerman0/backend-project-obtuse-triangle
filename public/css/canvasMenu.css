@@ -25,7 +25,7 @@ body{
     background-color: #ffb457;
     -webkit-tap-highlight-color: transparent;
     transition: background-color var(--duration);
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background3.gif) no-repeat;
     background-size:cover;
     background-attachment: fixed;
     margin-top: 10px;
