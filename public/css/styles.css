@@ -160,9 +160,10 @@
   }
   
   .text{
-    
+
+    padding: .5rem;
     word-wrap: break-word;
-    
+
     
   }
   .text img{
