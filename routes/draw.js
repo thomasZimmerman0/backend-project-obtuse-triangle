@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
-const auth = require('../auth')
 
 router.get('/draw',auth, (req,res) => {
 
@@ -26,7 +25,7 @@ router.get('/draw/:id',auth, async(req,res) => {
 
 router.post('/draw', auth, async (req,res) => {
 
-    try {
+    try{
         console.log('working?')
         let{ID, title, body} = req.body;
         let existCheck = await db.drawings.findByPk(ID);
@@ -46,10 +45,12 @@ router.post('/draw', auth, async (req,res) => {
                 is_published: false
             })
         }
+    }
 
     catch (error) {
         console.log(error)
     }
+
 })
 
 module.exports = router;

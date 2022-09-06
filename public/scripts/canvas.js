@@ -3,13 +3,17 @@ let ctx = canvas.getContext('2d');
 let body = document.querySelector('#body');
 let menuButtons = document.querySelector('#menuButtons')
 let stroke = document.querySelector("#stroke")
+let title;
+let id;
+let picture;
+
 
 if(document.querySelector("#picture")){
   let picture = document.querySelector("#picture")
   let title = document.querySelector("#title").innerHTML
   let id = document.querySelector("#id").innerHTML
-  let titleForm = document.querySelector('#titleForm')
 }
+// let titleForm = document.querySelector('#titleForm')
 
 
 
@@ -373,8 +377,13 @@ canvas.addEventListener('mousemove', (e) => {
 
 
 function save() {
-
-  let title = document.querySelector('#title').value
+if(document.querySelector('#titleForm').value){
+  title = document.querySelector('#titleForm').value
+}
+if(!document.querySelector("#id")){
+  id = 1000000
+}
+  
   const httpRequest = new XMLHttpRequest();
   let dataURL = canvas.toDataURL()
 
@@ -383,7 +392,7 @@ function save() {
   
   httpRequest.open("POST", "/draw", true);
   httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  httpRequest.send(`title=${title}&body=${dataURL}`);
+  httpRequest.send(`ID=${id}&title=${title}&body=${dataURL}`);
   // console.log(dataURL)
 
 
