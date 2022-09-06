@@ -57,8 +57,7 @@ body {
     background-attachment: fixed;
     font-style: Pacifico;
   margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+
 }
 a {
   text-decoration: none;
@@ -75,7 +74,7 @@ a {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border: .1em solid rgba(0, 0, 0, 0.2);
   margin-bottom: 1em;
-  margin-bottom: 200px; 
+  margin-bottom: 100px; 
 }
 
 .profile-user-page .img-user-profile {
@@ -210,6 +209,13 @@ footer h4 a {
 .avatar{
   width: 30%;
   border-radius: 10px;
-  border: #46494c;
-  margin: 30px;
+  margin: 25px;
+  background-color: #fff;
+}
+
+.line{
+  border-radius: 10px;
+  height: 10px;
+  background-color: #717a7e;
+  margin-bottom: 50px;
 }
