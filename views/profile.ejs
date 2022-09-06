@@ -12,7 +12,7 @@
       <div class="content-profile-page">
         <div class="profile-user-page card">
            <div class="img-user-profile">
-             <img class="profile-bgHome" src="https://cdn.wallpapersafari.com/23/96/sSjCqQ.jpg" />
+             <img class="profile-bgHome" src="https://i.pinimg.com/originals/2a/32/3e/2a323e686faedf8e5588d152e8d89a1a.gif" />
              <% if (profilePic == "") { %>
               <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="jofpin"/>
              <% } else { %>
@@ -22,7 +22,7 @@
             </div>
           <% if (fStatus) { %>
               <form action="/unfollow/<%= user.id %> ">
-                <button>Unollow</button>
+                <button>Unfollow</button>
               </form>
           <% } else { %>
                 <form action="/follow/<%= user.id %> ">

@@ -2,7 +2,8 @@ header{
     display:flex;
     justify-content: space-between;
     color: white;
-    background: rgba(0,0,0,0.2)
+    background: rgba(0,0,0,0.2);
+    font-style: Pacifico;
   }
   
   header div{
@@ -11,6 +12,7 @@ header{
     align-items: center;
     font-family: Pacifico;
     margin: 0 2rem;
+    font-style: Pacifico;
   }
   
   header div i{
@@ -21,6 +23,7 @@ header{
   
   header nav{
     padding: 1rem 2rem;
+    font-style: Pacifico;
   }
   
   nav ul li{
@@ -37,6 +40,7 @@ header{
     text-decoration: none;
     color: white;
     transition: all 250ms ease-in;
+    font-style: Pacifico;
   }
   
   nav li a:hover{
@@ -48,11 +52,12 @@ header{
 
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background2.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../images/Background3.gif) no-repeat;
     background-size:cover;
     background-attachment: fixed;
-  font-family: "Open sans", sans-serif;
+    font-style: Pacifico;
   margin-top: 10px;
+
 }
 a {
   text-decoration: none;
@@ -68,7 +73,8 @@ a {
   border-radius: 0.3rem;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border: .1em solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
+  margin-bottom: 100px; 
 }
 
 .profile-user-page .img-user-profile {
@@ -114,13 +120,13 @@ a {
   padding: 0 1.5em; 
 }
 .profile-user-page .user-profile-data h1 {
-  font-family: "Lato", sans-serif;
+  font-family: Pacifico;
   margin-top: 0.35em;
   color: #292f33;
   margin-bottom: 0; 
 }
 .profile-user-page .user-profile-data p {
-	font-family: "Lato", sans-serif;
+	font-family: Pacifico;
   color: #8899a6; 
   font-size: 1.1em;
   margin-top: 0;
@@ -131,7 +137,7 @@ a {
   font-size: 0.98em; 
 }
 .profile-user-page .data-user {
-	font-family: "Quicksand", sans-serif;
+	font-family: Pacifico;
   margin-bottom: 0;
   cursor: pointer;
   padding: 0;
@@ -190,7 +196,7 @@ footer h4 {
   display: block;
   text-align: center;
   clear: both;
-  font-family: "Coda", sans-serif;
+  font-family: Pacifico;
   color: #566965;
   line-height: 6;
   font-size: 1em;
@@ -198,4 +204,18 @@ footer h4 {
 footer h4 a {
   text-decoration: none;
   color: black;
+}
+
+.avatar{
+  width: 30%;
+  border-radius: 10px;
+  margin: 25px;
+  background-color: #fff;
+}
+
+.line{
+  border-radius: 10px;
+  height: 10px;
+  background-color: #717a7e;
+  margin-bottom: 50px;
 }
