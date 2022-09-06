@@ -243,18 +243,20 @@ menuButtons.addEventListener('click',(e)=>{
   }
 })
 
-function pick(e, destination) {
+function pick(e) {
+  console.log('eye')
   const bounding = canvas.getBoundingClientRect();
   const x = e.clientX - bounding.left;
   const y = e.clientY - bounding.top;
   const pixel = ctx.getImageData(x, y, 1, 1);
   const data = pixel.data;
+  console.log(data)
 
   const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
-  destination.style.background = rgba;
-  destination.textContent = rgba;
-
-  return rgba;
+  color = rgba
+  ctx.strokeStyle = rgba;
+  console.log(rgba)
+  console.log(ctx.strokeStyle)
 }
   // console.log(widthOffset)
 
@@ -286,7 +288,8 @@ canvas.addEventListener('mousedown', (e2) => {
       
     }
     if(eyeButton){
-      pick(e2, selectedColor)
+      console.log('if eye')
+      pick(e2)
     }
   })
 
