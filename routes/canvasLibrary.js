@@ -5,13 +5,22 @@ let db = require('../models')
 
 
 router.get('/drawings', auth, async (req, res)=>{
-        let selectedID = req.params.id
+
     try {
-        const drawings = await db.drawings.findAll({where:{userID: selectedID}})
-        console.log(drawings)
+        const drawings = await db.drawings.findAll({where:{userID: req.user.id}})
+
+        let drawingsArr = []
+
+        for(let i = 0; i < drawings.length; i++){
+
+            drawingsArr.push(drawings[i].body.replaceAll(' ', '+'))
+        }
+
+        
+
         res.render('canvasLibrary', {
             user : req.user,
-            drawings: drawings
+            drawings: drawingsArr
         })
     } 
     catch (error) {
@@ -20,15 +29,7 @@ router.get('/drawings', auth, async (req, res)=>{
             drawings: false
         })
     }
-
-
-    // if(drawings.length == 0){
-    //     drawings[0] = 0
-    // }
-    // console.log(drawings)
-
 })
-
 // router.post('/drawings/:id', async (req, res)=>{
 
 //     let drawing = req.params.drawing
