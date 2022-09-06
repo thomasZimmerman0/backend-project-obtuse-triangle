@@ -31,7 +31,9 @@
     <% if(drawings.length > 0){ %>
       <% for( let index = 0; index < drawings.length; index++ ) { %>
           <h2><%= drawings[index].title %> </h2>
-          <a href="/draw/<%=drawings[index].body%>"> <img src="<%=drawings[index].body%>" alt="drawing <%= index %>" width="200px" class="mb-5"> </a>
+          <!-- <a href="/draw/<%=drawings[index]%>"> -->
+             <img src="<%=drawings[index]%>" alt="drawing <%= index %>" width="200px" class="mb-5"> 
+            <!-- </a> -->
     <% }} %>
 
   </main>
