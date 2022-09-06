@@ -3,3 +3,4 @@ sequelize model:generate --name users --attributes userName:string,password:stri
 sequelize model:generate --name roles --attributes name:string
 
 sequelize model:generate --name drawings --attributes title:string,body:text,userID:integer,is_published:boolean
+
