@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../auth')
 
-router.get('/contact',auth, (req,res) => {
+router.get('/contact', (req,res) => {
 
     res.render('contact', {
-
-        user: req.user
+        user: req.user,
+        loggedIn : false
     })
 })
 

@@ -7,7 +7,8 @@ router.get('/draw',auth, (req,res) => {
 
     res.render('draw', {
         user : req.user,
-        drawing : false
+        drawing : false,
+        loggedIn : true
     })
 })
 
@@ -19,7 +20,8 @@ router.get('/draw/:id',auth, async(req,res) => {
 
     res.render('draw', {
         user : req.user,
-        drawing : drawing
+        drawing : drawing,
+        loggedIn : true
     })
 })
 

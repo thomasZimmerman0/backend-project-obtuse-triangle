@@ -7,7 +7,9 @@ router.get('/', (req,res) => {
     if(req.isAuthenticated()){    
 
         res.render('index', {
-        user : req.user
+        username: req.user.userName,
+        user : req.user,
+        loggedIn: true
     })}
 
     res.render('index', {

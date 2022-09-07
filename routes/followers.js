@@ -3,6 +3,10 @@ const router = express.Router();
 const auth = require('../auth')
 let db = require('../models')
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9e21de0bfda08b128ac3e6ba89cad15befbd9a2c
 const followerFunction = async(user, type)=>{
 
     let followerString = user[type]
@@ -33,7 +37,8 @@ router.get('/followers/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
-        user : user
+        user : user,
+        loggedIn : true
     })
 })
 
@@ -46,8 +51,8 @@ router.get('/following/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
-        user : user
-
+        user : user, 
+        loggedIn : true
     })
 })
 
