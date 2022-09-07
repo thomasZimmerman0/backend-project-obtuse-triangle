@@ -160,9 +160,16 @@
   }
   
   .text{
+<<<<<<< HEAD
     
     word-wrap: break-word;
     
+=======
+
+    padding: .5rem;
+    word-wrap: break-word;
+
+>>>>>>> 9e21de0bfda08b128ac3e6ba89cad15befbd9a2c
     
   }
   .text img{
