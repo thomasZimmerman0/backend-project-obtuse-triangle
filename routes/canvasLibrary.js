@@ -20,13 +20,15 @@ router.get('/drawings', auth, async (req, res)=>{
 
         res.render('canvasLibrary', {
             user : req.user,
-            drawings: drawingsArr
+            drawings: drawingsArr,
+            loggedIn: true
         })
     } 
     catch (error) {
         res.render('canvasLibrary', {
             user : req.user,
-            drawings: false
+            drawings: false,
+            loggedIn: true,
         })
     }
 })
