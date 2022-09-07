@@ -8,8 +8,8 @@
         <li><a href="/">Home</a></li>
         <li><a href="/drawings">Draw</a></li>
         <li><a href="/contact">Contact</a></li>
-        <% if(user) { %>
-          <li><a href="/user_profile/<%= user.id %> ">Profile</a></li>
+        <% if(loggedIn) { %>
+          <li><a href="/user_profile/<%=user.id%>">Profile</a></li>
           <li><a href="/logout">Logout</a></li>
         <% } %>
 

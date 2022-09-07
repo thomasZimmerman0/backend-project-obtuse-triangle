@@ -50,7 +50,8 @@ router.get('/profile/:id', async(req, res) => {
         profilePic: user.profilePic,
         followers : followerArray,
         following : followingArray,
-        fStatus : await isFollowing(req.user, user)
+        fStatus : await isFollowing(req.user, user),
+        loggedIn : true
     })
     
     

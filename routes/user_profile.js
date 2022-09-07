@@ -56,7 +56,8 @@ router.get('/user_profile/:id', auth, async(req, res) => {
         following : followingArray,
         profilePic : req.user.profilePic,
         configName : cloudinaryConfig.cloud_name,
-        drawings: drawings 
+        drawings: drawings,
+        loggedIn : true 
     })
 
 })

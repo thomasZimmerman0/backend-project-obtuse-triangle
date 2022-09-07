@@ -7,7 +7,8 @@ router.get('/logIn', (req,res) => {
 
    
     res.render('logIn', {
-        user : req.user
+        user : req.user,
+        loggedIn : false
     })
 })
 

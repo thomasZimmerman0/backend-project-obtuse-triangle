@@ -11,7 +11,8 @@ router.get('/accounts',auth, async (req,res) => {
     res.render('accounts', {
         user : req.user,
         configName : "dfprnrmct",
-        users : users
+        users : users,
+        loggedIn : true
     })
 })
 

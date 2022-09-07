@@ -34,7 +34,8 @@ router.get('/followers/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
-        user : user
+        user : user,
+        loggedIn : true
     })
 })
 
@@ -47,7 +48,8 @@ router.get('/following/:id', async (req,res) => {
 
     res.render('followers', {
         followers : followers,
-        user : user
+        user : user, 
+        loggedIn : true
     })
 })
 
